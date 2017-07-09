@@ -26,4 +26,9 @@ class TwitterClient
       puts "RETWEET : #{tweet.retweet_count}"
     end
   end
+
+  def json_user_timeline(user_name, options = {})
+    tweets = @client.user_timeline(user_name, options)
+    JSON.generate tweets.map { |tweet| tweet.attrs }
+  end
 end
