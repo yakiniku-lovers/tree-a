@@ -7,15 +7,14 @@
 </head>
 <body class="container">
   <h1>ツイートから木をつくったったー</h1>
+  <% unless @exception.nil? %>
+  <div class="alert alert-danger"><%= @exception %></div>
+  <% end %>
 
-  <form action="request" method="GET">
-    <div class="form-group">
-      <label for="user_name">おなまえ</label>
-      <input type="text" class="form-control" name="name">
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+  <p><a href="/request_token">Twitter認証</a></p>
 
-  <!-- <a href="/request_token">Twitter Login</a> -->
+  <% if @twitter.authorized? %>
+  <%= @twitter.user_timeline({count: 200, exclude_replies: true}) %>
+  <% end %>
 </body>
 </html>

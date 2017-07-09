@@ -6,4 +6,4 @@ gem 'sinatra-contrib'
 
 gem 'dotenv'
 
-gem 'twitter'
+gem 'twitter_oauth'
