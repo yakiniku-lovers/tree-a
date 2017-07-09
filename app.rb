@@ -55,7 +55,7 @@ get "/tweets/:user_name" do
 end
 
 def base_url
-  default_port = (request.scheme == "http") ? 9292 : 443
-  port = (request.port == default_port) ? ":9292" : ":#{request.port.to_s}"
+  default_port = (request.scheme == "http") ? 80 : 443
+  port = (request.port == default_port) ? "" : ":#{request.port.to_s}"
   "#{request.scheme}://#{request.host}#{port}"
 end
