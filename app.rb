@@ -16,5 +16,7 @@ end
 
 get "/tweets/:user_name" do
   tc = TwitterClient.new
-  tc.json_user_timeline(params[:user_name], {count: 200})
+  tc.json_user_timeline(params[:user_name], 
+    { count: 200, exclude_replies: true }
+  )
 end
