@@ -35,7 +35,7 @@ get '/access_token' do
       oauth_verifier: params[:oauth_verifier]
     )
   rescue OAuth::Unauthorized => @exception
-    return erb :authorize_fail
+    return erb :index
   end
 
   session[:access_token] = @access_token.token

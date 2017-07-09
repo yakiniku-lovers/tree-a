@@ -7,6 +7,9 @@
 </head>
 <body class="container">
   <h1>ツイートから木をつくったったー</h1>
+  <% unless @exception.nil? %>
+  <div class="alert alert-danger"><%= @exception %></div>
+  <% end %>
 
   <p><a href="/request_token">Twitter認証</a></p>
 
