@@ -3,7 +3,6 @@ require 'bundler'
 
 Bundler.require
 Dotenv.load
-load './TwitterClient.rb'
 
 enable :sessions
 
@@ -14,6 +13,10 @@ before do
     token: session[:access_token],
     secret: session[:secret_token]
   )
+end
+
+get '/' do
+  erb :index
 end
 
 get '/request_token' do
@@ -42,14 +45,6 @@ get '/access_token' do
   session[:profile_image] = @twitter.info['profile_image_url_https']
 
   redirect '/'
-end
-
-get '/' do
-  erb :index
-end
-
-get '/request' do
-	params["name"]
 end
 
 get "/tweets/:user_name" do
