@@ -1,10 +1,4 @@
-require 'rubygems'
-require 'bundler'
-
-Bundler.require
-Dotenv.load
-
-enable :sessions
+require './setup.rb'
 
 before do
   @twitter = TwitterOAuth::Client.new(
@@ -16,6 +10,7 @@ before do
 end
 
 get '/' do
+  @user = User.find_by(name: session[:screen_name])
   erb :index
 end
 
