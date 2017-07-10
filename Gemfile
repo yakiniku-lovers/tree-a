@@ -7,3 +7,6 @@ gem 'sinatra-contrib'
 gem 'dotenv'
 
 gem 'twitter_oauth'
+
+gem 'sinatra-activerecord'
+gem 'sqlite3', require: false

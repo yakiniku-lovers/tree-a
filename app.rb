@@ -4,6 +4,13 @@ require 'bundler'
 Bundler.require
 Dotenv.load
 
+set :database, {adapter: 'sqlite3', database: 'twitter_tree.sqlite3'}
+
+# modelの読み込み
+Dir[File.expand_path('./model', __FILE__) << '/*.rb'].each do |file|
+  require file
+end
+
 enable :sessions
 
 before do
@@ -16,6 +23,7 @@ before do
 end
 
 get '/' do
+  
   erb :index
 end
 
