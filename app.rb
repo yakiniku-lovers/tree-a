@@ -10,6 +10,7 @@ before do
 end
 
 get '/' do
+  @user = User.find_by(name: session[:screen_name])
   erb :index
 end
 

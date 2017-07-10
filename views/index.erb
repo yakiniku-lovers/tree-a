@@ -13,6 +13,27 @@
 
   <p><a href="/request_token">Twitter認証</a></p>
 
+  <% if @user %>
+  <table class="table table-striped">
+    <tr>
+  　　<th>ID</th>
+  　　<th><%= @user.id %></th>
+  　</tr>
+  　<tr>
+  　　<td>name</td>
+  　　<td><%= @user.name %></td>
+  　</tr>
+  　<tr>
+  　　<td>status</td>
+  　　<td><%= UserStatuses::parse(@user.status) %></td>
+  　</tr>
+  　<tr>
+  　　<td>URL</td>
+  　　<td><%= @user.url %></td>
+  　</tr>
+  </table>
+  <% end %>
+
   <% if @twitter.authorized? %>
   <%= @twitter.user_timeline({count: 200, exclude_replies: true}) %>
   <% end %>
