@@ -2,3 +2,4 @@ vendor/*
 .bundle/
 .env
 twitter_tree.sqlite3
+dump.rdb
