@@ -18,4 +18,6 @@ require './enum/user_statuses.rb'
 #   require file
 # end
 
+require './worker/user_worker.rb'
+
 enable :sessions

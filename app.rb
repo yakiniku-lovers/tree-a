@@ -39,6 +39,11 @@ get '/access_token' do
   session[:screen_name] = @twitter.info['screen_name']
   session[:profile_image] = @twitter.info['profile_image_url_https']
 
+  UserWorker.perform_async(
+    @twitter.user_timeline({count: 200, exclude_replies: true}),
+    @twitter.info['screen_name']
+  )
+
   redirect '/'
 end
 

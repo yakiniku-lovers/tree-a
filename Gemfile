@@ -12,3 +12,5 @@ gem 'sinatra-activerecord'
 gem 'sqlite3', require: false
 
 gem 'inum'
+
+gem 'sidekiq'
