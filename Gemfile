@@ -14,3 +14,5 @@ gem 'sqlite3', require: false
 gem 'inum'
 
 gem 'sidekiq'
+
+gem 'rubocop'
