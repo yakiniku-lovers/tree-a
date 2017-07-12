@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler'
 
 Bundler.require
 Dotenv.load
 
-set :database, {adapter: 'sqlite3', database: 'twitter_tree.sqlite3'}
+set :database, adapter: 'sqlite3', database: 'twitter_tree.sqlite3'
 
 # modelの読み込み
 require './model/User.rb'

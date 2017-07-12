@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './setup.rb'
 
 before do
@@ -40,22 +42,15 @@ get '/access_token' do
   session[:profile_image] = @twitter.info['profile_image_url_https']
 
   UserWorker.perform_async(
-    @twitter.user_timeline({count: 200, exclude_replies: true}),
+    @twitter.user_timeline(count: 200, exclude_replies: true),
     @twitter.info['screen_name']
   )
 
   redirect '/'
 end
 
-get "/tweets/:user_name" do
-  tc = TwitterClient.new
-  tc.json_user_timeline(params[:user_name], 
-    { count: 200, exclude_replies: true }
-  )
-end
-
 def base_url
-  default_port = (request.scheme == "http") ? 80 : 443
-  port = (request.port == default_port) ? "" : ":#{request.port.to_s}"
+  default_port = request.scheme == 'http' ? 80 : 443
+  port = request.port == default_port ? '' : ":#{request.port}"
   "#{request.scheme}://#{request.host}#{port}"
 end

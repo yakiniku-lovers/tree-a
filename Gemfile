@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'http://rubygems.org'
 ruby '2.4.0'
 
@@ -14,3 +16,5 @@ gem 'sqlite3', require: false
 gem 'inum'
 
 gem 'sidekiq'
+
+gem 'rubocop'
