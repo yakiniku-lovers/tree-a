@@ -22,4 +22,6 @@ require './enum/user_statuses.rb'
 
 require './worker/user_worker.rb'
 
+require './services/flower.rb'
+
 enable :sessions

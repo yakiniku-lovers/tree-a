@@ -3,3 +3,4 @@ vendor/*
 .env
 twitter_tree.sqlite3
 dump.rdb
+public/images/tree/
