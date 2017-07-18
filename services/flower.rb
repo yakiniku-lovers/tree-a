@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 require 'open3'
 
 class Flower
-  SCRIPT_PATH = './submodules/tree-d/flower_generater.py'.freeze
+  SCRIPT_PATH = './submodules/tree-d/flower_generater.py'
 
   def initialize(saved_path)
     @path = saved_path
@@ -9,9 +11,9 @@ class Flower
 
   def generate(options = {})
     arg = "-o #{@path} "
-    arg << "-c #{options[:colors][0]} #{options[:colors][1]} #{options[:colors][2]} " if options[:colors]
-    arg << "-n #{options[:number]} " if options[:number]
-    arg << "-t #{options[:type]}" if options[:type]
+    arg += "-c #{options[:colors].join(' ')} " if options[:colors]
+    arg += "-n #{options[:number]} " if options[:number]
+    arg += "-t #{options[:type]}" if options[:type]
 
     o, = Open3.capture3("python #{SCRIPT_PATH} #{arg}")
 
