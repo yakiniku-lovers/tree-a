@@ -6,11 +6,11 @@ class UserWorker
   def perform(_, user_name)
     # レコード(status:更新中)を作成
     if User.exists?(name: user_name)
-      user = User.new(name: user_name, status: UserStatuses::PROCESSING.value)
-      user.save!
-    else
       user = User.find_by(name: user_name)
       user.update!(status: UserStatuses::PROCESSING.value, url: nil)
+    else
+      user = User.new(name: user_name, status: UserStatuses::PROCESSING.value)
+      user.save!
     end
 
     # jsonから特徴を取得
