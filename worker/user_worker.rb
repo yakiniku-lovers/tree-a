@@ -19,8 +19,8 @@ class UserWorker
 
     # 特徴から画像を生成する
     puts 'generate image...'
-    sleep(20)
-    image_path = '/foo/hogefuga.png'
+    flower = Flower.new('./public/images/tree')
+    image_path = flower.generate(colors: [200, 80, 80], number: 8, type: 2)
 
     # レコード(status: 完了)を更新
     user.update!(status: UserStatuses::COMPLETED.value, url: image_path)
