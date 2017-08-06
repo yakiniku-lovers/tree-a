@@ -3,7 +3,7 @@
 require 'open3'
 
 class Flower
-  SCRIPT_PATH = './submodules/tree-d/flower_generater.py'
+  SCRIPT_PATH = './submodules/tree-d/flower_generator.py'
 
   def initialize(saved_path)
     @path = saved_path

@@ -29,7 +29,7 @@
   　</tr>
   　<tr>
   　　<td>URL</td>
-  　　<td><img src="images/tree/<%= @user.url.split('/')[-1] %>" alt=""></td>
+  　　<td><img src="<%= @user.url.slice(7..-1) if @user.url %>" alt=""></td>
   　</tr>
   </table>
   <% end %>
